@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'experts-app-root',
   template: `
   <nav-bar></nav-bar>
-  <experts-list></experts-list>
+  <router-outlet></router-outlet>
   `
 })
 export class ExpertsAppComponent {

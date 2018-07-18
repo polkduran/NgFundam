@@ -3,7 +3,6 @@ import { ExpertService } from './shared/expert.service'
 import { ToastrService } from '../common/toastr.service'
 
 @Component({
-    selector:"experts-list",
     template:`
     <div>
         <h1>Bienvenue chez SoftFluent...</h1>

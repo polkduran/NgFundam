@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 @Component({
     selector:'expert-thumbnail',
     template:`
-    <div class="well hoverwell thumbnail" (click)="clickHandler()"> 
+    <div [routerLink]="['/experts', expert.id]" class="well hoverwell thumbnail" (click)="clickHandler()"> 
         <h3 [ngSwitch]="expert.role">
             <ng-container *ngSwitchCase="'Coder'">😵</ng-container>
             <ng-container *ngSwitchCase="'Management'">😁</ng-container>

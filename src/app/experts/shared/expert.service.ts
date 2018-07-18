@@ -18,20 +18,23 @@ const experts =[
         role: "Coder",
         expertise: "shiny code",
         tool: "Notepad",
-        specialSkill: "bug creator"
+        specialSkill: "bug creator",
+        photo: '/assets/images/angularconnect-shield.png'
     },
     {
         id: 2,
         name: "Scrum master",
         role: "Management",
         expertise: "rituels",
-        tool: "Post-it"
+        tool: "Post-it",
+        photo: '/assets/images/ng-nl.png'
     },
     {
         id: 3,
         name: "Archi bold",
         role: "Design",
         expertise: "CRUD",
-        tool: "Visio"
+        tool: "Rational Rose",
+        photo: '/assets/images/ng-conf.png'
     }
 ] 
