@@ -1,4 +1,6 @@
-import {Component} from '@angular/core'
+import { Component, OnInit } from '@angular/core'
+import { ExpertService } from './shared/expert.service'
+
 @Component({
     selector:"experts-list",
     template:`
@@ -15,21 +17,14 @@ import {Component} from '@angular/core'
     `
 })
 
-export class ExpertsListComponent{
-    experts =[
-        {
-            name: "Super coder",
-            expertise: "shiny code"
-        },
-        {
-            name: "Scrum master",
-            expertise: "rituels"
-        },
-        {
-            name: "Super archi",
-            expertise: "CRUD"
-        }
-    ] 
+export class ExpertsListComponent implements OnInit{
+    experts:any[]
+    constructor(private expertService: ExpertService){
+    }
+
+    ngOnInit(){
+        this.experts = this.expertService.getAll();
+    }
 
     handleEventClicked(event){
         alert(event);
