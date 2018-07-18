@@ -8,10 +8,12 @@ import { ExpertThumbnailComponent } from './experts/expert-thumbnail.component'
 import { NavBarComponent } from './nav/nav-bar.component'
 import { ExpertDetailsComponent } from './experts/expert-details/expert-details.component'
 import { EnrollExpertComponent } from './experts/enroll-expert.component'
+import { Error404Component } from './errors/404.component'
 
 import { ExpertService } from './experts/shared/expert.service'
 import { ToastrService } from './common/toastr.service'
 import { appRoutes } from './routes'
+import { ExpertRouteActivator } from './experts/expert-details/expert-route-activator.service'
 
 @NgModule({
   imports: [
@@ -24,12 +26,14 @@ import { appRoutes } from './routes'
     ExpertThumbnailComponent,
     NavBarComponent,
     ExpertDetailsComponent,
-    EnrollExpertComponent
+    EnrollExpertComponent,
+    Error404Component
   ],
 
   providers: [
     ExpertService,
-    ToastrService
+    ToastrService,
+    ExpertRouteActivator
    ],
   bootstrap: [ExpertsAppComponent]
 })
