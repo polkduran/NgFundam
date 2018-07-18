@@ -6,6 +6,7 @@ import { ExpertsListComponent } from './experts/experts-list.component'
 import { ExpertThumbnailComponent } from './experts/expert-thumbnail.component'
 import { NavBarComponent } from './nav/nav-bar.component'
 import { ExpertService } from './experts/shared/expert.service'
+import { ToastrService } from './common/toastr.service'
 
 @NgModule({
   imports: [
@@ -18,7 +19,10 @@ import { ExpertService } from './experts/shared/expert.service'
     NavBarComponent
   ],
 
-  providers: [ExpertService],
+  providers: [
+    ExpertService,
+    ToastrService
+   ],
   bootstrap: [ExpertsAppComponent]
 })
 export class AppModule { }

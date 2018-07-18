@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ExpertService } from './shared/expert.service'
+import { ToastrService } from '../common/toastr.service'
 
 @Component({
     selector:"experts-list",
@@ -19,14 +20,14 @@ import { ExpertService } from './shared/expert.service'
 
 export class ExpertsListComponent implements OnInit{
     experts:any[]
-    constructor(private expertService: ExpertService){
+    constructor(private expertService: ExpertService, private toastr: ToastrService){
     }
 
     ngOnInit(){
         this.experts = this.expertService.getAll();
     }
 
-    handleEventClicked(event){
-        alert(event);
+    handleEventClicked(expertName){
+        this.toastr.success(expertName);
     }
 }
