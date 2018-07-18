@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs'
 
 @Injectable()
 export class ExpertService{
     getAll(){
-        return experts;
+        let subject = new Subject()
+        setTimeout(()=>{
+            subject.next(experts);
+            subject.complete();
+        }, 1000)
+
+        return subject;
     }
 
     getById(id: number){

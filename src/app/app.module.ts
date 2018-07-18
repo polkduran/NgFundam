@@ -14,6 +14,7 @@ import { ExpertService } from './experts/shared/expert.service'
 import { ToastrService } from './common/toastr.service'
 import { appRoutes } from './routes'
 import { ExpertRouteActivator } from './experts/expert-details/expert-route-activator.service'
+import { ExpertsListResolver } from './experts/experts-list-resolver.service'
 
 @NgModule({
   imports: [
@@ -33,8 +34,20 @@ import { ExpertRouteActivator } from './experts/expert-details/expert-route-acti
   providers: [
     ExpertService,
     ToastrService,
-    ExpertRouteActivator
+    ExpertRouteActivator,
+    ExpertsListResolver,
+    {
+      provide: 'canDeactivateEnrollExpert',
+      useValue: checkDirtyState
+    }
    ],
   bootstrap: [ExpertsAppComponent]
 })
 export class AppModule { }
+
+export function checkDirtyState(component: EnrollExpertComponent){
+  if(component.isDirty){
+    return window.confirm("Inscription de l'expert non terminée. Voulez-vous annuler l'inscription en cours ?")
+  }
+  return true
+}

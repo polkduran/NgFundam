@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ExpertService } from './shared/expert.service'
 import { ToastrService } from '../common/toastr.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
     template:`
@@ -19,11 +20,14 @@ import { ToastrService } from '../common/toastr.service'
 
 export class ExpertsListComponent implements OnInit{
     experts:any[]
-    constructor(private expertService: ExpertService, private toastr: ToastrService){
+
+    constructor(private expertService: ExpertService, 
+                private toastr: ToastrService,
+                private route: ActivatedRoute){
     }
 
     ngOnInit(){
-        this.experts = this.expertService.getAll();
+        this.experts = this.route.snapshot.data['experts']
     }
 
     handleEventClicked(expertName){
