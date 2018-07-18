@@ -1,0 +1,22 @@
+<div class="container">
+    <img [src]="expert?.photo" [alt]="expert?.name" class="expert-photo">
+
+    <div class="row">
+        <div class="col-md-11">
+            <h2 [ngSwitch]="expert.role">
+                <ng-container *ngSwitchCase="'Coder'">😵</ng-container>
+                <ng-container *ngSwitchCase="'Management'">😁</ng-container>
+                <ng-container *ngSwitchCase="'Design'">😌</ng-container>
+                <ng-container *ngSwitchDefault>😲</ng-container>
+                {{expert?.name}} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div><strong>Expert en :</strong> {{expert.expertise}}</div>
+            <div><strong>Outil de travail :</strong> {{expert.tool}}</div>
+            <div *ngIf="expert?.specialSkill"><strong>Talent :</strong> ${{expert.specialSkill}}</div>
+        </div>
+    </div>
+</div>

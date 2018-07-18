@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 @Component({
     selector:'expert-thumbnail',
     template:`
-    <div class="well hoverwell thumbnail"> 
+    <div class="well hoverwell thumbnail" (click)="clickHandler()"> 
         <h3 [ngSwitch]="expert.role">
             <ng-container *ngSwitchCase="'Coder'">😵</ng-container>
             <ng-container *ngSwitchCase="'Management'">😁</ng-container>
@@ -14,10 +14,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         <div>Expert en : {{expert.expertise}}</div>
         <div>Outil de travail : {{expert.tool}}</div>
         <div *ngIf="expert?.specialSkill">Talent : {{expert.specialSkill}}</div>
-
-     
-
-        <button class="btn btn-primary" (click)="clickHandler()">Push</button>
     </div>
     `,
     styles:[`
