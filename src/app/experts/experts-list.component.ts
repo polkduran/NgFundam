@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { ExpertService } from './shared/expert.service'
-import { ToastrService } from '../common/toastr.service'
 import { ActivatedRoute } from '@angular/router'
+import { ToastrService } from '../common/toastr.service'
+import { ExpertService, IExpert } from './shared/index'
 
 @Component({
     template:`
@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 
 export class ExpertsListComponent implements OnInit{
-    experts:any[]
+    experts:IExpert[]
 
     constructor(private expertService: ExpertService, 
                 private toastr: ToastrService,

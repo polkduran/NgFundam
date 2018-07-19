@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { ExpertService } from '../shared/expert.service'
 import { ActivatedRoute } from '@angular/router'
+import { ExpertService, IExpert } from '../shared/index'
 
 
 @Component({
@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 
 export class ExpertDetailsComponent implements OnInit{
-    expert
+    expert:IExpert
     constructor(private expertService: ExpertService, private route: ActivatedRoute){
 
     }

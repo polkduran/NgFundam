@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core'
-import { Subject } from 'rxjs'
+import { Subject, Observable } from 'rxjs'
+import { IExpert } from './expert.model';
 
 @Injectable()
 export class ExpertService{
-    getAll(){
-        let subject = new Subject()
+    getAll(): Observable<IExpert[]>{
+        let subject = new Subject<IExpert[]>()
         setTimeout(()=>{
             subject.next(experts);
             subject.complete();
-        }, 1000)
+        }, 500)
 
         return subject;
     }
 
-    getById(id: number){
+    getById(id: number): IExpert{
         return experts.find(x => x.id === id);
     }
 }
 
-const experts =[
+const experts:IExpert[] =[
     {
         id: 1,
         name: "Super coder",

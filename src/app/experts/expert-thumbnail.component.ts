@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { IExpert } from './shared/index';
 @Component({
     selector:'expert-thumbnail',
     template:`
@@ -24,7 +25,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 })
 
 export class ExpertThumbnailComponent{
-    @Input() expert:any;
+    @Input() expert:IExpert;
     @Output() eventClick = new EventEmitter();
 
     clickHandler(){
