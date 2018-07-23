@@ -17,10 +17,12 @@
             <em *ngIf="newExpertForm.controls.expertise?.invalid && (newExpertForm.controls.expertise?.touched)">Obligatoire</em>
             <input (ngModel)="expertise" name="expertise" required id="expertExpertise" type="text" class="form-control" placeholder="Expertise..." />
         </div>
-        <div class="form-group" [ngClass]="{'error': newExpertForm.controls.tool?.invalid && newExpertForm.controls.tool?.touched}">
+
+        <div class="form-group" [ngClass]="">
             <label for="expertTool">Outil de travail :</label>
-            <em *ngIf="newExpertForm.controls.tool?.invalid && (newExpertForm.controls.tool?.touched)">Obligatoire</em>
-            <input (ngModel)="tool" name="tool" required id="expertTool" type="text" type="text" class="form-control" placeholder="Outil de travail..." />
+            <select (ngModel)="tool" class="form-control" required id="expertTool" name="tool" [compareWith]="compareTools">
+                <option *ngFor="let tool of availableTools" [ngValue]="tool">{{tool.name}}</option>
+            </select>
         </div>
 
         <div class="form-group">
@@ -36,14 +38,6 @@
 
             If we want two way binding we use [(ngModel)]="expert.name"
 
-        <div class="row">
-            <div class="col-md-6">
-                <input (ngModel)="city" name="city" id="city" type="text" class="form-control" placeholder="City..." />
-            </div>
-            <div class="col-md-6">
-                <input (ngModel)="country" name="country" id="country" type="text" class="form-control" placeholder="Country..." />
-            </div>
-        </div>
 -->
 
         <div class="form-group" [ngClass]="{'error': newExpertForm.controls.photo?.invalid && newExpertForm.controls.photo?.touched}">
@@ -54,7 +48,7 @@
             <img [src]="newExpertForm.controls.photo.value" *ngIf="newExpertForm.controls.photo?.valid" />
         </div>
 
-        <button type="submit" class="btn btn-primary">Valider</button>
-        <button type="button" [disabled]="newExpertForm.invalid" class="btn btn-default" (click)="cancel()">Annuler</button>
+        <button type="submit" [disabled]="newExpertForm.invalid" class="btn btn-primary">Valider</button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Annuler</button>
     </form>
 </div>

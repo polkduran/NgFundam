@@ -10,6 +10,6 @@ export class ExpertsListResolver implements Resolve<any>{
     }
     
     resolve(){
-        return this.expertService.getAll().pipe(map(experts => experts));
+        return this.expertService.getExperts().pipe(map(experts => experts));
     }
 }

@@ -20,6 +20,6 @@ export class ExpertDetailsComponent implements OnInit{
 
     ngOnInit(): void {
         let id = +this.route.snapshot.params['id'];
-        this.expert = this.expertService.getById(id);
+        this.expert = this.expertService.getExpertById(id);
     }
 }

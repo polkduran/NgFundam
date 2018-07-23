@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Subject, Observable } from 'rxjs'
-import { IExpert } from './expert.model';
+import { IExpert, ITool } from './expert.model';
 
 @Injectable()
 export class ExpertService{
-    getAll(): Observable<IExpert[]>{
+    getExperts(): Observable<IExpert[]>{
         let subject = new Subject<IExpert[]>()
         setTimeout(()=>{
             subject.next(experts);
@@ -14,15 +14,48 @@ export class ExpertService{
         return subject;
     }
 
-    getById(id: number): IExpert{
+    getExpertById(id: number): IExpert{
         return experts.find(x => x.id === id);
     }
 
-    save(expert: IExpert){
+    saveExpert(expert: IExpert){
         expert.id = experts.length + 1
         experts.push(expert)
     }
+
+    getTools() : Observable<ITool[]>{
+        let subject = new Subject<ITool[]>()
+        setTimeout(() => {
+            subject.next(tools)
+            subject.complete()
+        }, 500);
+        
+        return subject
+    }
+
+    saveTool(tool: ITool){
+        tool.id = tools.length + 1
+        tools.push(tool)
+    }
 }
+
+const tools:ITool[] = [
+    {
+        id: 1,
+        name: "Notepad",
+        level: "++"
+    },
+    {
+        id: 2,
+        name: "Post-it",
+        level: "+"
+    },
+    {
+        id: 3,
+        name: "Rational Rose",
+        level: "+++"
+    }
+]
 
 const experts:IExpert[] =[
     {
@@ -30,7 +63,7 @@ const experts:IExpert[] =[
         name: "Super coder",
         role: "Coder",
         expertise: "shiny code",
-        tool: "Notepad",
+        tool: tools[0],
         specialSkill: "bug creator",
         photo: '/assets/images/angularconnect-shield.png'
     },
@@ -39,7 +72,7 @@ const experts:IExpert[] =[
         name: "Scrum master",
         role: "Management",
         expertise: "rituels",
-        tool: "Post-it",
+        tool: tools[1],
         photo: '/assets/images/ng-nl.png'
     },
     {
@@ -47,7 +80,7 @@ const experts:IExpert[] =[
         name: "Archi bold",
         role: "Design",
         expertise: "CRUD",
-        tool: "Rational Rose",
+        tool: tools[2],
         photo: '/assets/images/ng-conf.png'
     }
 ] 

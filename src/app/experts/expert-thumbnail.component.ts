@@ -13,7 +13,7 @@ import { IExpert } from './shared/index';
         </h3>
 
         <div>Expert en : {{expert.expertise}}</div>
-        <div>Outil de travail : {{expert.tool}}</div>
+        <div>Outil de travail : {{expert.tool.name}} ({{expert.tool.level}})</div>
         <div *ngIf="expert?.specialSkill">Talent : {{expert.specialSkill}}</div>
     </div>
     `,

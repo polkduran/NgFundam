@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { ExpertService, IExpert } from './shared/index'
+import { ExpertService, IExpert, ITool } from './shared/index'
 
 @Component({
     templateUrl: 'enroll-expert.component.html',
@@ -14,10 +14,15 @@ import { ExpertService, IExpert } from './shared/index'
   `]
 })
 
-export class EnrollExpertComponent {
+export class EnrollExpertComponent implements OnInit {
     isDirty: boolean = true
+    availableTools: ITool[]
     constructor(private router: Router, private expertService: ExpertService){
 
+    }
+
+    ngOnInit(){
+        this.expertService.getTools().subscribe( tools => this.availableTools = tools)
     }
 
     cancel(){
@@ -25,8 +30,12 @@ export class EnrollExpertComponent {
     }
 
     saveExpert(formValues){
-        this.expertService.save(formValues)
+        this.expertService.saveExpert(formValues)
         this.isDirty = false
         this.router.navigate(['/experts'])
+    }
+
+    compareTools(tool1:ITool, tool2:ITool){
+        return tool1 && tool2 && tool1.id == tool2.id
     }
 }

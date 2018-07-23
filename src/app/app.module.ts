@@ -10,7 +10,8 @@ import {
   EnrollExpertComponent,
   ExpertService,
   ExpertRouteActivator,
-  ExpertsListResolver
+  ExpertsListResolver,
+  CreateToolComponent
 } from './experts/index'
 
 import { ExpertsAppComponent } from './experts-app.component';
@@ -35,7 +36,7 @@ import { AuthService } from './user/auth.service'
     ExpertDetailsComponent,
     EnrollExpertComponent,
     Error404Component,
-    
+    CreateToolComponent
   ],
 
   providers: [

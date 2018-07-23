@@ -10,7 +10,7 @@ export class ExpertRouteActivator implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot){
         let id = +route.params['id']
-        let expertExist = !!this.expertService.getById(id)
+        let expertExist = !!this.expertService.getExpertById(id)
 
         if (!expertExist){
             this.router.navigate(['/404'])

@@ -3,7 +3,13 @@ export interface IExpert{
     name: string
     role: string
     expertise: string
-    tool: string
+    tool: ITool
     specialSkill?: string
     photo: string
+}
+
+export interface ITool {
+    id: number
+    name: string
+    level: string
 }
