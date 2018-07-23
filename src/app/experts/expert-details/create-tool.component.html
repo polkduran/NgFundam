@@ -7,6 +7,7 @@
                 <label for="name">Nom de l'outil :</label>
                 <em *ngIf="name.invalid && name.dirty && name?.errors.required">Obligatoire</em>
                 <em *ngIf="name.invalid && name.dirty && name?.errors.maxlength">Ne doit pas dépasser 20 caractères</em>
+                <em *ngIf="name.invalid && name.dirty && name?.errors.restrictedWords">Ne doit pas contenir les mots : {{name.errors.restrictedWords}}</em>
                 <input formControlName="name" id="name" type="text" class="form-control" placeholder="Nom de l'outil..." />
             </div>
 

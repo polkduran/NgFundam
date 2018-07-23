@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { ITool, ExpertService } from '../shared/index';
+import { ITool, ExpertService, restrictedWordsValidator } from '../shared/index';
 
 @Component({
     templateUrl: 'create-tool.component.html',
@@ -25,7 +25,7 @@ export class CreateToolComponent implements OnInit{
     }
 
     ngOnInit(){
-        this.name = new FormControl('', [Validators.required, Validators.maxLength(20)])
+        this.name = new FormControl('', [Validators.required, Validators.maxLength(20), restrictedWordsValidator(['eclipse', 'papier']) ])
         this.level = new FormControl('', Validators.required)
 
         this.newToolForm = new FormGroup({
