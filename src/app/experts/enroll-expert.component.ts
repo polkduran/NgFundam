@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
+import { ExpertService, IExpert } from './shared/index'
 
 @Component({
     templateUrl: 'enroll-expert.component.html',
@@ -13,10 +14,9 @@ import { Router } from '@angular/router'
   `]
 })
 
-export class EnrollExpertComponent{
+export class EnrollExpertComponent {
     isDirty: boolean = true
-    newExpert
-    constructor(private router: Router){
+    constructor(private router: Router, private expertService: ExpertService){
 
     }
 
@@ -25,6 +25,8 @@ export class EnrollExpertComponent{
     }
 
     saveExpert(formValues){
-        console.log(formValues)
+        this.expertService.save(formValues)
+        this.isDirty = false
+        this.router.navigate(['/experts'])
     }
 }

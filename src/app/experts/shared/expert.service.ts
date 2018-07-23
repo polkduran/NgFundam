@@ -17,6 +17,11 @@ export class ExpertService{
     getById(id: number): IExpert{
         return experts.find(x => x.id === id);
     }
+
+    save(expert: IExpert){
+        expert.id = experts.length + 1
+        experts.push(expert)
+    }
 }
 
 const experts:IExpert[] =[
