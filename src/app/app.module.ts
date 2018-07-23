@@ -11,7 +11,8 @@ import {
   ExpertService,
   ExpertRouteActivator,
   ExpertsListResolver,
-  CreateToolComponent
+  CreateToolComponent,
+  CreateAchievementComponent
 } from './experts/index'
 
 import { ExpertsAppComponent } from './experts-app.component';
@@ -36,7 +37,8 @@ import { AuthService } from './user/auth.service'
     ExpertDetailsComponent,
     EnrollExpertComponent,
     Error404Component,
-    CreateToolComponent
+    CreateToolComponent,
+    CreateAchievementComponent
   ],
 
   providers: [

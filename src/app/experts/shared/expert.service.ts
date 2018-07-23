@@ -65,7 +65,8 @@ const experts:IExpert[] =[
         expertise: "shiny code",
         tool: tools[0],
         specialSkill: "bug creator",
-        photo: '/assets/images/angularconnect-shield.png'
+        photo: '/assets/images/angularconnect-shield.png',
+        achievements: []
     },
     {
         id: 2,
@@ -73,7 +74,9 @@ const experts:IExpert[] =[
         role: "Management",
         expertise: "rituels",
         tool: tools[1],
-        photo: '/assets/images/ng-nl.png'
+        photo: '/assets/images/ng-nl.png',
+        achievements: []
+
     },
     {
         id: 3,
@@ -81,6 +84,8 @@ const experts:IExpert[] =[
         role: "Design",
         expertise: "CRUD",
         tool: tools[2],
-        photo: '/assets/images/ng-conf.png'
+        photo: '/assets/images/ng-conf.png',
+        achievements: []
+
     }
 ] 
