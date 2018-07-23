@@ -49,7 +49,7 @@
             <em *ngIf="newExpertForm.controls.photo?.invalid && newExpertForm.controls.photo?.touched && newExpertForm.controls.photo?.errors.required">Obligatoire</em>
             <em *ngIf="newExpertForm.controls.photo?.invalid && newExpertForm.controls.photo?.touched  && newExpertForm.controls.photo?.errors.pattern">Doit être une URL au format png ou jpg</em>
             <input (ngModel)="newExpert.photo" name="photo" required pattern=".*\/.*.(png|jpg)" id="photo" type="text" class="form-control" placeholder="URL de la photo..." />
-            <img />
+            <img [src]="newExpertForm.controls.photo.value" *ngIf="newExpertForm.controls.photo?.valid" />
         </div>
 
         <button type="submit" class="btn btn-primary">Valider</button>
