@@ -19,4 +19,7 @@
             <div *ngIf="expert?.specialSkill"><strong>Talent :</strong> {{expert.specialSkill}}</div>
         </div>
     </div>
+
+    <hr/>
+    <achievements-list [achievements]="expert?.achievements"></achievements-list>
 </div>

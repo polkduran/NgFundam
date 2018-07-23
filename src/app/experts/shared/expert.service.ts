@@ -75,7 +75,18 @@ const experts:IExpert[] =[
         expertise: "rituels",
         tool: tools[1],
         photo: '/assets/images/ng-nl.png',
-        achievements: []
+        achievements: [
+            {
+                id:21,
+                date: new Date(2017,10,20),
+                description: "30 minutes stand-up metting!"
+            },
+            {
+                id: 22,
+                date: new Date(2017,9,27),
+                description: "Increassing velocity!"
+            }
+        ]
 
     },
     {
