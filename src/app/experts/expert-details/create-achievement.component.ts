@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { restrictedWordsValidator, IAchievement } from '../shared/index';
 
 @Component({
+    selector:'create-achievement',
     templateUrl: 'create-achievement.component.html',
     styles:[`
     em { float: right; color: #E05C65; padding-left: 10px; }
@@ -16,6 +17,8 @@ import { restrictedWordsValidator, IAchievement } from '../shared/index';
 })
 
 export class CreateAchievementComponent implements OnInit{
+    @Output() saveNewAchievement = new EventEmitter()
+    @Output() cancelAddAchievement = new EventEmitter()
     newAchievementForm: FormGroup
     date: FormControl
     description: FormControl
@@ -40,10 +43,10 @@ export class CreateAchievementComponent implements OnInit{
             date: new Date(formValues.date),
             description: formValues.description
         }
-        console.log(achievement)
+        this.saveNewAchievement.emit(achievement)
     }
 
     cancel(){
-        this.router.navigate(['experts'])
+        this.cancelAddAchievement.emit()
     }
 }

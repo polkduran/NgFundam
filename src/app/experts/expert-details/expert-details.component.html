@@ -21,5 +21,14 @@
     </div>
 
     <hr/>
-    <achievements-list [achievements]="expert?.achievements"></achievements-list>
+    <div class="row">
+        <div class="col-md-2">
+            <h3 style="margin:0">Réussites remarquables</h3>
+        </div>
+        <div class="col-md-2">
+            <a (click)="addAchievement()">Ajouter une réussite</a>
+        </div>
+    </div>
+    <achievements-list *ngIf="!addMode" [achievements]="expert?.achievements"></achievements-list>
+    <create-achievement *ngIf="addMode" (saveNewAchievement)="saveAchievement($event)" (cancelAddAchievement)="cancelAddAchievement()"></create-achievement>
 </div>

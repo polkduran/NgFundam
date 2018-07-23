@@ -23,6 +23,11 @@ export class ExpertService{
         experts.push(expert)
     }
 
+    updateExpert(expert: IExpert){
+        let index = experts.findIndex( x => x.id == expert.id)
+        experts[index] = expert
+    }
+
     getTools() : Observable<ITool[]>{
         let subject = new Subject<ITool[]>()
         setTimeout(() => {
