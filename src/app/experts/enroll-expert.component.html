@@ -1,0 +1,58 @@
+<h1>Inscrire un expert</h1>
+<hr>
+<div class="col-md-6">
+    <form #newExpertForm="ngForm" (ngSubmit)="saveExpert(newExpertForm.value)" autocomplete="off" novalidate>
+        <div class="form-group" [ngClass]="{'error': newExpertForm.controls.name?.invalid && newExpertForm.controls.name?.touched}">
+            <label for="expertName">Nom de l'expert :</label>
+            <em *ngIf="newExpertForm.controls.name?.invalid && (newExpertForm.controls.name?.touched)">Obligatoire</em>
+            <input (ngModel)="newExpert.name" name="name" required id="name" type="text" class="form-control" placeholder="Nom de l'expert..." />
+        </div>
+        <div class="form-group" [ngClass]="{'error': newExpertForm.controls.role?.invalid && newExpertForm.controls.role?.touched}">
+            <label for="expertRole">Rôle de l'expert :</label>
+            <em *ngIf="newExpertForm.controls.role?.invalid && (newExpertForm.controls.role?.touched)">Obligatoire</em>
+            <input (ngModel)="newExpert.role" name="role" required id="expertRole" type="text" class="form-control" />
+        </div>
+        <div class="form-group" [ngClass]="{'error': newExpertForm.controls.expertise?.invalid && newExpertForm.controls.expertise?.touched}">
+            <label for="expertExpertise">Expertise :</label>
+            <em *ngIf="newExpertForm.controls.expertise?.invalid && (newExpertForm.controls.expertise?.touched)">Obligatoire</em>
+            <input (ngModel)="newExpert.expertise" name="expertise" required id="expertExpertise" type="text" class="form-control" placeholder="Expertise..." />
+        </div>
+        <div class="form-group" [ngClass]="{'error': newExpertForm.controls.tool?.invalid && newExpertForm.controls.tool?.touched}">
+            <label for="expertTool">Outil de travail :</label>
+            <em *ngIf="newExpertForm.controls.tool?.invalid && (newExpertForm.controls.tool?.touched)">Obligatoire</em>
+            <input (ngModel)="newExpert.tool" name="tool" required id="expertTool" type="text" type="text" class="form-control" placeholder="Outil de travail..." />
+        </div>
+
+        <div class="form-group">
+            <label for="specialSkill">Talent :</label>
+            <input (ngModel)="newExpert.specialSkill" name="specialSkill" id="specialSkill" type="text" class="form-control" placeholder="Talent..." />
+        </div>
+        <!--
+
+            If we have a nested object we can wrap it under a ngModelGroup
+            <div ngModelGroup="nestedProp">
+                <input (ngModel)="prop"...
+            </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <input (ngModel)="city" name="city" id="city" type="text" class="form-control" placeholder="City..." />
+            </div>
+            <div class="col-md-6">
+                <input (ngModel)="country" name="country" id="country" type="text" class="form-control" placeholder="Country..." />
+            </div>
+        </div>
+-->
+
+        <div class="form-group" [ngClass]="{'error': newExpertForm.controls.photo?.invalid && newExpertForm.controls.photo?.touched}">
+            <label for="photo">Photo :</label>
+            <em *ngIf="newExpertForm.controls.photo?.invalid && newExpertForm.controls.photo?.touched && newExpertForm.controls.photo?.errors.required">Obligatoire</em>
+            <em *ngIf="newExpertForm.controls.photo?.invalid && newExpertForm.controls.photo?.touched  && newExpertForm.controls.photo?.errors.pattern">Doit être une URL au format png ou jpg</em>
+            <input (ngModel)="newExpert.photo" name="photo" required pattern=".*\/.*.(png|jpg)" id="photo" type="text" class="form-control" placeholder="URL de la photo..." />
+            <img />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Valider</button>
+        <button type="button" [disabled]="newExpertForm.invalid" class="btn btn-default" (click)="cancel()">Annuler</button>
+    </form>
+</div>
