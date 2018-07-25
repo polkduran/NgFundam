@@ -13,7 +13,8 @@ import {
   ExpertsListResolver,
   CreateToolComponent,
   CreateAchievementComponent,
-  AchievementsListComponent
+  AchievementsListComponent,
+  LevelPipe
 } from './experts/index'
 
 import { ExpertsAppComponent } from './experts-app.component';
@@ -42,7 +43,8 @@ import { AuthService } from './user/auth.service'
     CreateToolComponent,
     CreateAchievementComponent,
     AchievementsListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    LevelPipe
   ],
 
   providers: [

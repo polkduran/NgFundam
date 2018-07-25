@@ -9,11 +9,11 @@ import { IExpert } from './shared/index';
             <ng-container *ngSwitchCase="'Management'">😁</ng-container>
             <ng-container *ngSwitchCase="'Design'">😌</ng-container>
             <ng-container *ngSwitchDefault>😲</ng-container>
-            {{expert.name}}
+            {{expert.name | uppercase}}
         </h3>
 
         <div>Expert en : {{expert.expertise}}</div>
-        <div>Outil de travail : {{expert.tool.name}} ({{expert.tool.level}})</div>
+        <div>Outil de travail : {{expert.tool.name}} (niveau {{expert.tool.level | level}})</div>
         <div *ngIf="expert?.specialSkill">Talent : {{expert.specialSkill}}</div>
     </div>
     `,

@@ -48,17 +48,17 @@ const tools:ITool[] = [
     {
         id: 1,
         name: "Notepad",
-        level: "++"
+        level: 2
     },
     {
         id: 2,
         name: "Post-it",
-        level: "+"
+        level: 1
     },
     {
         id: 3,
         name: "Rational Rose",
-        level: "+++"
+        level: 3
     }
 ]
 
@@ -84,12 +84,14 @@ const experts:IExpert[] =[
             {
                 id:21,
                 date: new Date(2017,10,20),
-                description: "30 minutes stand-up metting"
+                description: "30 minutes stand-up metting",
+                proudness: 7
             },
             {
                 id: 22,
                 date: new Date(2017,9,27),
-                description: "Increassing velocity!"
+                description: "Increassing velocity!",
+                proudness: 9
             }
         ]
 
@@ -105,7 +107,8 @@ const experts:IExpert[] =[
             {
                 id: 31,
                 date: new Date(2018, 1, 3),
-                description: "122 tables model!"
+                description: "122 tables model!",
+                proudness: 9
             }
         ]
 

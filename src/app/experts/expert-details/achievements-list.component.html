@@ -1,13 +1,14 @@
-<div class="row" *ngFor="let achivement of achievements">
+<div class="row" *ngFor="let achivement of visibleAchievements">
     <div class="col-md-10">
         <collapsible-well>
             <div well-title>
                 {{achivement.description}}
-                <i *ngIf="achivement.description.endsWith('!')" class="glyphicon glyphicon-fire" style="color:red"></i>
+                <i *ngIf="achivement.proudness > 8" class="glyphicon glyphicon-fire" style="color:red"></i>
             </div>
 
             <div well-body>
-                <h6>{{achivement.date}}</h6>
+                <h6>{{achivement.date | date:'shortDate'}}</h6>
+                <span>Niveau de fierté : {{achivement.proudness}}</span>
             </div>
         </collapsible-well>
     </div>

@@ -12,11 +12,12 @@ export interface IExpert{
 export interface ITool {
     id: number
     name: string
-    level: string
+    level: number
 }
 
 export interface IAchievement{
     id: number,
     date: Date,
-    description: string
+    description: string,
+    proudness: number
 }
