@@ -1,7 +1,14 @@
 <div class="row" *ngFor="let achivement of achievements">
     <div class="col-md-10">
-        <collapsible-well [title]="achivement.description">
-            <h6>{{achivement.date}}</h6>
+        <collapsible-well>
+            <div well-title>
+                {{achivement.description}}
+                <i *ngIf="achivement.description.endsWith('!')" class="glyphicon glyphicon-fire" style="color:red"></i>
+            </div>
+
+            <div well-body>
+                <h6>{{achivement.date}}</h6>
+            </div>
         </collapsible-well>
     </div>
 </div>

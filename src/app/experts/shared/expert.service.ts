@@ -84,7 +84,7 @@ const experts:IExpert[] =[
             {
                 id:21,
                 date: new Date(2017,10,20),
-                description: "30 minutes stand-up metting!"
+                description: "30 minutes stand-up metting"
             },
             {
                 id: 22,
@@ -101,7 +101,13 @@ const experts:IExpert[] =[
         expertise: "CRUD",
         tool: tools[2],
         photo: '/assets/images/ng-conf.png',
-        achievements: []
+        achievements: [
+            {
+                id: 31,
+                date: new Date(2018, 1, 3),
+                description: "122 tables model!"
+            }
+        ]
 
     }
 ] 
