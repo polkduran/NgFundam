@@ -16,6 +16,8 @@ import { ExpertService, IExpert, IAchievement } from '../shared/index'
 export class ExpertDetailsComponent implements OnInit{
     expert:IExpert
     addMode:boolean
+    filterBy:string
+
     constructor(private expertService: ExpertService, private route: ActivatedRoute){
 
     }
@@ -23,6 +25,7 @@ export class ExpertDetailsComponent implements OnInit{
     ngOnInit(): void {
         let id = +this.route.snapshot.params['id'];
         this.expert = this.expertService.getExpertById(id);
+        this.filterBy = 'all'
     }
 
     addAchievement(){

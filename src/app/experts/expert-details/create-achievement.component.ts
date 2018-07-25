@@ -22,6 +22,7 @@ export class CreateAchievementComponent implements OnInit{
     newAchievementForm: FormGroup
     date: FormControl
     description: FormControl
+    proudness: FormControl
 
     constructor(private router:Router){
 
@@ -30,10 +31,12 @@ export class CreateAchievementComponent implements OnInit{
     ngOnInit(){
         this.date = new FormControl('')
         this.description = new FormControl('', [Validators.required, Validators.maxLength(100), restrictedWordsValidator(['java'])])
+        this.proudness = new FormControl('', [Validators.min(1), Validators.max(10), Validators.required])
 
         this.newAchievementForm = new FormGroup({
             date: this.date,
-            description: this.description
+            description: this.description,
+            proudness: this.proudness
         })
     }
 
@@ -41,7 +44,8 @@ export class CreateAchievementComponent implements OnInit{
         let achievement:IAchievement = {
             id: undefined,
             date: new Date(formValues.date),
-            description: formValues.description
+            description: formValues.description,
+            proudness: +formValues.proudness
         }
         this.saveNewAchievement.emit(achievement)
     }

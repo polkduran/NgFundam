@@ -8,14 +8,14 @@
                 <ng-container *ngSwitchCase="'Management'">😁</ng-container>
                 <ng-container *ngSwitchCase="'Design'">😌</ng-container>
                 <ng-container *ngSwitchDefault>😲</ng-container>
-                {{expert?.name}} </h2>
+                {{expert?.name | uppercase}} </h2>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
             <div><strong>Expert en :</strong> {{expert.expertise}}</div>
-            <div><strong>Outil de travail :</strong> {{expert.tool.name}} ({{expert.tool.level}})</div>
+            <div><strong>Outil de travail :</strong> {{expert.tool.name}} (niveau {{expert.tool.level | level}})</div>
             <div *ngIf="expert?.specialSkill"><strong>Talent :</strong> {{expert.specialSkill}}</div>
         </div>
     </div>
@@ -25,10 +25,19 @@
         <div class="col-md-2">
             <h3 style="margin:0">Réussites remarquables</h3>
         </div>
+
+        <div class="col-md-7">
+            <button class="btn btn-default" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">Toutes</button>
+            <button class="btn btn-default" [class.active]="filterBy === 'few'" (click)="filterBy = 'few'">Peu fier</button>
+            <button class="btn btn-default" [class.active]="filterBy === 'some'" (click)="filterBy = 'some'">Moyennement fier</button>
+            <button class="btn btn-default" [class.active]="filterBy === 'very'" (click)="filterBy = 'very'">Très fier</button>
+        </div>
+
         <div class="col-md-2">
             <a (click)="addAchievement()">Ajouter une réussite</a>
         </div>
     </div>
-    <achievements-list *ngIf="!addMode" [achievements]="expert?.achievements"></achievements-list>
+
+    <achievements-list [filterBy]="filterBy" *ngIf="!addMode" [achievements]="expert?.achievements"></achievements-list>
     <create-achievement *ngIf="addMode" (saveNewAchievement)="saveAchievement($event)" (cancelAddAchievement)="cancelAddAchievement()"></create-achievement>
 </div>
